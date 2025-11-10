@@ -1,0 +1,18 @@
+5.DEMONSTRATE CONTINOUS INTEGRATION AND DEVELOPMENT USING JENKINS.
+
+OPEN http://localhost:8080/ on browser login with admin as username and password
+
+Select new item enter item as shown and select as free style project.
+
+
+Press ok and enter description as building select build step invoke top level maven targets.
+
+Select maven environment and goal as compile and give pom path as
+F:\541\workspace\mvnregapp
+
+
+Click apply and save.
+
+
+
+
