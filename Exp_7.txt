@@ -1,0 +1,30 @@
+6.	DEVELOP SIMPLE CONTAINERIZED APPLICATION USING DOCKER.
+The docker file has to be created under the project
+Dockerfile
+
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn -B clean package -DskipTests
+FROM tomcat:10.1-jdk17-temurin
+RUN rm -rf /usr/local/tomcat/webapps/*
+COPY --from=build /app/target/*.war/ usr/local/tomcat/webapps/ROOT.war
+EXPOSE 8080
+After creating file under projet folder ,Open terminal and set path of project.
+Build docker image using command: docker build -t reg541 .
+Create and run  as container using image:
+docker run –p 8080:8080 reg541
+expected output as  follows :
+C:\Users\hello\Downloads\mvn>docker build -t reg541 .
+[+] Building 1.3s (8/8) FINISHED
+C:\Users\hello\Downloads\mvn>docker images
+REPOSITORY              TAG          IMAGE ID       CREATED         SIZE
+reg541                  latest       d1a8c7e8955a   5 weeks ago     782MB 
+C:\Users\hello\Downloads\mvn>docker run -p 8080:8080 reg541
+26-Oct-2025 08:13:41.670 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.46 
+C:\Users\hello\Downloads\mvn>docker ps -a
+CONTAINER ID   IMAGE     COMMAND             CREATED         STATUS                       PORTS     NAMES
+bd6025216305   reg541    "catalina.sh run"   3 minutes ago   Exited (130) 3 minutes ago             price 
+
