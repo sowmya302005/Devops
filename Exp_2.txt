@@ -1,0 +1,102 @@
+2. Explore git and github commands. 
+
+git commands. 
+Git init: To create git repository 
+Git add file: adding file to staging 
+Git commit –m “msg”: moving file from staging to .git 
+repository. We can keep track of changes by 
+commiting. 
+Git branch branchname: creating new branch as 
+copy of master. 
+Git branch : shows all branches and shows where is 
+pointer now. 
+Git checkout branchname: moving pointer from present 
+branch to specified branch. 
+Git log: displays all commits with info. 
+Git log --oneline: displays all commits with each in 
+single line. 
+Git merge branchname: copy from branch to pointer 
+which is in head state now. 
+
+GITHUB COMMANDS 
+GITHUB FORK: 
+Fork is a copy of a repository. This is useful when you want to contribute to 
+someone else's project or start your own project based on theirs. 
+Fork is not a command in Git, but something offered in GitHub and other 
+repository hosts. 
+logging in to GitHub, and fork the repository, Now you have your own copy of 
+repository. 
+GITHUB PULL REQUEST: On GitHub, and we see that the repository has a new commit. And we can send 
+a Pull Request to the original repository 
+GITHUB BRANCH: 
+On GitHub, access your repository and click the "master" branch button. 
+There you can create a new Branch. Type in a descriptive name, and click 
+Create branch: 
+Executing process 
+Create a folder with your roll no as ex12 in any 
+drive 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 ~ 
+$ cd F:/ex12 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+$ git init 
+EXPECTED OUTPUT: 
+Initialized empty Git repository in F:/ex12/.git/ 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master) 
+$ git add file1.txt 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master) 
+$ git commit -m "master 1 version" 
+EXPECTED OUTPUT: 
+[master (root-commit) 85310a0] master 1 version 
+1 file changed, 1 insertion(+) 
+create mode 100644 file1.txt 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master) 
+$ git branch br1 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master)$ git branch 
+EXPECTED OUTPUT: 
+br1 
+* master 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master) 
+$ git checkout br1 
+EXPECTED OUTPUT: 
+Switched to branch 'br1' 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git add file1.txt 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git commit -m "br1 1 version" 
+EXPECTED OUTPUT: 
+[br1 65cf90c] br1 1 version 
+1 file changed, 1 insertion(+), 1 deletion(-) 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git log –oneline 
+EXPECTED OUTPUT: 
+65cf90c (HEAD -> br1) br1 1 version 
+85310a0 (master) master 1 version 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git add file1.txt 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+EXPECTED OUTPUT: 
+$ git commit -m "br1 2 version" 
+[br1 4cb7a65] br1 2 version 
+1 file changed, 1 insertion(+), 1 deletion(-) 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git log –oneline 
+EXPECTED OUTPUT: 
+4cb7a65 (HEAD -> br1) br1 2 version 
+65cf90c br1 1 version 
+85310a0 (master) master 1 version 
+Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 (br1) 
+$ git checkout master 
+EXPECTED OUTPUT: 
+Switched to branch 'master'Narendarkumboji@DESKTOP-5HUH47P MINGW64 /f/ex12 
+(master) 
+$ git merge br1 
+EXPECTED OUTPUT: 
+Updating 85310a0..4cb7a65 
+Fast-forward 
+file1.txt | 2 +- 
+1 file changed, 1 insertion(+), 1 deletion(-)
