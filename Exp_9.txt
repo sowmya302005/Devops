@@ -1,0 +1,60 @@
+9.AUTOMATE THE PROCESS OF RUNNING CONTAINERZIED APPLICATION FOR EXERCISE 7 USING KUBERNATES.
+
+First load containerized image in to kind 
+kind create cluster --name demo-multi
+
+kind load docker-image reg541:latest --name demo-multi
+
+Write mreg.yaml under project
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mreg
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mreg
+  template:
+    metadata:
+      labels:
+        app: mreg
+    spec:
+      containers:
+      - name: mreg
+        image: mreg:latest
+        imagePullPolicy: IfNotPresent   # 👈 prevents pull from Docker Hub
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mreg-service
+spec:
+  selector:
+    app: mreg
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080   # 👈 fixed port
+
+
+
+kubectl apply -f mreg.yaml
+
+Check pods using
+Kind get pods -o wide
+
+kubectl get service registration-service
+
+
+You will get the port no, using the port number run the application
+Or you can forward to specific port number.
+
+kubectl port-forward service/mreg-service 8080:8080
+after running delete the cluster if you don’t require.
+kind delete cluster --name demo-multi 
+
