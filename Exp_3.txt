@@ -1,0 +1,18 @@
+3. Practice sorce code management on github.
+
+Create a account on github (https://github.com/) with your emailid and create own password which you can remember.
+Verify your emailid with otp sent by entering it.
+Create a repo on git hub.
+After that create git repository on eclipse id 
+Right click on Registration folder
+Select team and share project and 
+Create .git eclipse itself(recommended) and finish.
+
+Pushing to git hub:
+Right click on Registration folder
+Select team and commit and 
+Paste path and access token from github  and finish.
+
+Now you can see project on github.
+
+
